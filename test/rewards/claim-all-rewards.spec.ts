@@ -8,7 +8,7 @@ import {
   MAX_UINT_AMOUNT,
   ERC20__factory,
   advanceTimeAndBlock,
-} from '@aave/deploy-v3';
+} from '@pollum-io/lending-deploy';
 import { RANDOM_ADDRESSES } from '../helpers/constants';
 import {
   assetDataComparator,
@@ -122,8 +122,8 @@ makeSuite('Incentives Controller V2 claimAllRewards tests', (testEnv) => {
         zeroBalance[index]
           ? BigNumber.from('0')
           : BigNumber.from(parseUnits('10000', index > 2 ? 2 : 18))
-              .mul(index)
-              .mul(caseIndex)
+            .mul(index)
+            .mul(caseIndex)
       );
       const totalSupply = assets.map((_, index) =>
         BigNumber.from(parseUnits('10000', index > 2 ? 2 : 18))

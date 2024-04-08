@@ -1,15 +1,15 @@
 // SPDX-License-Identifier: AGPL-3.0
 pragma solidity ^0.8.10;
 
-import {Ownable} from '@aave/core-v3/contracts/dependencies/openzeppelin/contracts/Ownable.sol';
-import {IERC20} from '@aave/core-v3/contracts/dependencies/openzeppelin/contracts/IERC20.sol';
-import {GPv2SafeERC20} from '@aave/core-v3/contracts/dependencies/gnosis/contracts/GPv2SafeERC20.sol';
-import {IWETH} from '@aave/core-v3/contracts/misc/interfaces/IWETH.sol';
-import {IPool} from '@aave/core-v3/contracts/interfaces/IPool.sol';
-import {IAToken} from '@aave/core-v3/contracts/interfaces/IAToken.sol';
-import {ReserveConfiguration} from '@aave/core-v3/contracts/protocol/libraries/configuration/ReserveConfiguration.sol';
-import {UserConfiguration} from '@aave/core-v3/contracts/protocol/libraries/configuration/UserConfiguration.sol';
-import {DataTypes} from '@aave/core-v3/contracts/protocol/libraries/types/DataTypes.sol';
+import {Ownable} from '@pollum-io/lending-core/contracts/dependencies/openzeppelin/contracts/Ownable.sol';
+import {IERC20} from '@pollum-io/lending-core/contracts/dependencies/openzeppelin/contracts/IERC20.sol';
+import {GPv2SafeERC20} from '@pollum-io/lending-core/contracts/dependencies/gnosis/contracts/GPv2SafeERC20.sol';
+import {IWETH} from '@pollum-io/lending-core/contracts/misc/interfaces/IWETH.sol';
+import {IPool} from '@pollum-io/lending-core/contracts/interfaces/IPool.sol';
+import {IAToken} from '@pollum-io/lending-core/contracts/interfaces/IAToken.sol';
+import {ReserveConfiguration} from '@pollum-io/lending-core/contracts/protocol/libraries/configuration/ReserveConfiguration.sol';
+import {UserConfiguration} from '@pollum-io/lending-core/contracts/protocol/libraries/configuration/UserConfiguration.sol';
+import {DataTypes} from '@pollum-io/lending-core/contracts/protocol/libraries/types/DataTypes.sol';
 import {IWrappedTokenGatewayV3} from './interfaces/IWrappedTokenGatewayV3.sol';
 import {DataTypesHelper} from '../libraries/DataTypesHelper.sol';
 

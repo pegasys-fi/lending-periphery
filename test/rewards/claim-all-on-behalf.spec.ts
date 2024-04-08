@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { waitForTx, getBlockTimestamp, ZERO_ADDRESS, impersonateAddress } from '@aave/deploy-v3';
+import { waitForTx, getBlockTimestamp, ZERO_ADDRESS, impersonateAddress } from '@pollum-io/lending-deploy';
 import { makeSuite, TestEnv } from '../helpers/make-suite';
 
 makeSuite('AaveIncentivesController - Claim all rewards on behalf', (testEnv: TestEnv) => {

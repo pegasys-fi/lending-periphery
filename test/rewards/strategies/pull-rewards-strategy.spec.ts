@@ -4,7 +4,7 @@ import {
   PullRewardsTransferStrategy__factory,
   waitForTx,
   ZERO_ADDRESS,
-} from '@aave/deploy-v3';
+} from '@pollum-io/lending-deploy';
 import { RANDOM_ADDRESSES } from '../../helpers/constants';
 import hre from 'hardhat';
 import { parseEther } from '@ethersproject/units';
@@ -124,7 +124,7 @@ makeSuite('Pull Rewards Transfer Strategy', (testEnv: TestEnv) => {
     await waitForTx(
       await rewardToken
         .connect(rewardsVault.signer)
-        ['mint(address,uint256)'](rewardsVault.address, parseEther('2000000'))
+      ['mint(address,uint256)'](rewardsVault.address, parseEther('2000000'))
     );
     await waitForTx(
       await rewardToken.connect(rewardsVault.signer).approve(instance.address, MAX_UINT_AMOUNT)
@@ -165,7 +165,7 @@ makeSuite('Pull Rewards Transfer Strategy', (testEnv: TestEnv) => {
     await waitForTx(
       await rewardToken
         .connect(rewardsVault.signer)
-        ['mint(address,uint256)'](rewardsVault.address, parseEther('2000000'))
+      ['mint(address,uint256)'](rewardsVault.address, parseEther('2000000'))
     );
     await waitForTx(
       await rewardToken.connect(rewardsVault.signer).approve(instance.address, MAX_UINT_AMOUNT)

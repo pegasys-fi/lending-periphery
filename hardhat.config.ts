@@ -17,16 +17,13 @@ dotenv.config({ path: '../.env' });
 
 const DEFAULT_BLOCK_GAS_LIMIT = 12450000;
 const MAINNET_FORK = process.env.MAINNET_FORK === 'true';
-const TENDERLY_PROJECT = process.env.TENDERLY_PROJECT || '';
-const TENDERLY_USERNAME = process.env.TENDERLY_USERNAME || '';
-const TENDERLY_FORK_NETWORK_ID = process.env.TENDERLY_FORK_NETWORK_ID || '1';
 const REPORT_GAS = process.env.REPORT_GAS === 'true';
 
 const mainnetFork = MAINNET_FORK
   ? {
-      blockNumber: 12012081,
-      url: NETWORKS_RPC_URL['main'],
-    }
+    blockNumber: 12012081,
+    url: NETWORKS_RPC_URL['rollux'],
+  }
   : undefined;
 
 // export hardhat config
@@ -42,18 +39,13 @@ const config: HardhatUserConfig = {
       },
     ],
   },
-  tenderly: {
-    project: TENDERLY_PROJECT,
-    username: TENDERLY_USERNAME,
-    forkNetwork: TENDERLY_FORK_NETWORK_ID,
-  },
   typechain: {
     outDir: 'types',
     externalArtifacts: [
-      'node_modules/@aave/core-v3/artifacts/contracts/**/*[!dbg].json',
-      'node_modules/@aave/core-v3/artifacts/contracts/**/**/*[!dbg].json',
-      'node_modules/@aave/core-v3/artifacts/contracts/**/**/**/*[!dbg].json',
-      'node_modules/@aave/core-v3/artifacts/contracts/mocks/tokens/WETH9Mocked.sol/WETH9Mocked.json',
+      'node_modules/@pollum-io/lending-core/artifacts/contracts/**/*[!dbg].json',
+      'node_modules/@pollum-io/lending-core/artifacts/contracts/**/**/*[!dbg].json',
+      'node_modules/@pollum-io/lending-core/artifacts/contracts/**/**/**/*[!dbg].json',
+      'node_modules/@pollum-io/lending-core/artifacts/contracts/mocks/tokens/WETH9Mocked.sol/WETH9Mocked.json',
     ],
   },
   gasReporter: {
@@ -122,51 +114,51 @@ const config: HardhatUserConfig = {
   // Need to compile aave-v3 contracts due no way to import external artifacts for hre.ethers
   dependencyCompiler: {
     paths: [
-      '@aave/core-v3/contracts/protocol/configuration/PoolAddressesProviderRegistry.sol',
-      '@aave/core-v3/contracts/protocol/configuration/PoolAddressesProvider.sol',
-      '@aave/core-v3/contracts/misc/AaveOracle.sol',
-      '@aave/core-v3/contracts/protocol/tokenization/AToken.sol',
-      '@aave/core-v3/contracts/protocol/tokenization/DelegationAwareAToken.sol',
-      '@aave/core-v3/contracts/protocol/tokenization/StableDebtToken.sol',
-      '@aave/core-v3/contracts/protocol/tokenization/VariableDebtToken.sol',
-      '@aave/core-v3/contracts/protocol/libraries/logic/GenericLogic.sol',
-      '@aave/core-v3/contracts/protocol/libraries/logic/ValidationLogic.sol',
-      '@aave/core-v3/contracts/protocol/libraries/logic/ReserveLogic.sol',
-      '@aave/core-v3/contracts/protocol/libraries/logic/SupplyLogic.sol',
-      '@aave/core-v3/contracts/protocol/libraries/logic/EModeLogic.sol',
-      '@aave/core-v3/contracts/protocol/libraries/logic/BorrowLogic.sol',
-      '@aave/core-v3/contracts/protocol/libraries/logic/BridgeLogic.sol',
-      '@aave/core-v3/contracts/protocol/libraries/logic/FlashLoanLogic.sol',
-      '@aave/core-v3/contracts/protocol/pool/Pool.sol',
-      '@aave/core-v3/contracts/protocol/pool/PoolConfigurator.sol',
-      '@aave/core-v3/contracts/protocol/pool/DefaultReserveInterestRateStrategy.sol',
-      '@aave/core-v3/contracts/dependencies/openzeppelin/upgradeability/InitializableAdminUpgradeabilityProxy.sol',
-      '@aave/core-v3/contracts/protocol/libraries/aave-upgradeability/InitializableImmutableAdminUpgradeabilityProxy.sol',
-      '@aave/core-v3/contracts/deployments/ReservesSetupHelper.sol',
-      '@aave/core-v3/contracts/misc/AaveProtocolDataProvider.sol',
-      '@aave/core-v3/contracts/protocol/configuration/ACLManager.sol',
-      '@aave/core-v3/contracts/dependencies/weth/WETH9.sol',
-      '@aave/core-v3/contracts/mocks/helpers/MockIncentivesController.sol',
-      '@aave/core-v3/contracts/mocks/helpers/MockReserveConfiguration.sol',
-      '@aave/core-v3/contracts/mocks/oracle/CLAggregators/MockAggregator.sol',
-      '@aave/core-v3/contracts/mocks/tokens/MintableERC20.sol',
-      '@aave/core-v3/contracts/mocks/flashloan/MockFlashLoanReceiver.sol',
-      '@aave/core-v3/contracts/mocks/tokens/WETH9Mocked.sol',
-      '@aave/core-v3/contracts/mocks/upgradeability/MockVariableDebtToken.sol',
-      '@aave/core-v3/contracts/mocks/upgradeability/MockAToken.sol',
-      '@aave/core-v3/contracts/mocks/upgradeability/MockStableDebtToken.sol',
-      '@aave/core-v3/contracts/mocks/upgradeability/MockInitializableImplementation.sol',
-      '@aave/core-v3/contracts/mocks/helpers/MockPool.sol',
-      '@aave/core-v3/contracts/dependencies/openzeppelin/contracts/IERC20Detailed.sol',
-      '@aave/core-v3/contracts/mocks/oracle/PriceOracle.sol',
-      '@aave/core-v3/contracts/mocks/tokens/MintableDelegationERC20.sol',
+      '@pollum-io/lending-core/contracts/protocol/configuration/PoolAddressesProviderRegistry.sol',
+      '@pollum-io/lending-core/contracts/protocol/configuration/PoolAddressesProvider.sol',
+      '@pollum-io/lending-core/contracts/misc/AaveOracle.sol',
+      '@pollum-io/lending-core/contracts/protocol/tokenization/AToken.sol',
+      '@pollum-io/lending-core/contracts/protocol/tokenization/DelegationAwareAToken.sol',
+      '@pollum-io/lending-core/contracts/protocol/tokenization/StableDebtToken.sol',
+      '@pollum-io/lending-core/contracts/protocol/tokenization/VariableDebtToken.sol',
+      '@pollum-io/lending-core/contracts/protocol/libraries/logic/GenericLogic.sol',
+      '@pollum-io/lending-core/contracts/protocol/libraries/logic/ValidationLogic.sol',
+      '@pollum-io/lending-core/contracts/protocol/libraries/logic/ReserveLogic.sol',
+      '@pollum-io/lending-core/contracts/protocol/libraries/logic/SupplyLogic.sol',
+      '@pollum-io/lending-core/contracts/protocol/libraries/logic/EModeLogic.sol',
+      '@pollum-io/lending-core/contracts/protocol/libraries/logic/BorrowLogic.sol',
+      '@pollum-io/lending-core/contracts/protocol/libraries/logic/BridgeLogic.sol',
+      '@pollum-io/lending-core/contracts/protocol/libraries/logic/FlashLoanLogic.sol',
+      '@pollum-io/lending-core/contracts/protocol/pool/Pool.sol',
+      '@pollum-io/lending-core/contracts/protocol/pool/PoolConfigurator.sol',
+      '@pollum-io/lending-core/contracts/protocol/pool/DefaultReserveInterestRateStrategy.sol',
+      '@pollum-io/lending-core/contracts/dependencies/openzeppelin/upgradeability/InitializableAdminUpgradeabilityProxy.sol',
+      '@pollum-io/lending-core/contracts/protocol/libraries/aave-upgradeability/InitializableImmutableAdminUpgradeabilityProxy.sol',
+      '@pollum-io/lending-core/contracts/deployments/ReservesSetupHelper.sol',
+      '@pollum-io/lending-core/contracts/misc/AaveProtocolDataProvider.sol',
+      '@pollum-io/lending-core/contracts/protocol/configuration/ACLManager.sol',
+      '@pollum-io/lending-core/contracts/dependencies/weth/WETH9.sol',
+      '@pollum-io/lending-core/contracts/mocks/helpers/MockIncentivesController.sol',
+      '@pollum-io/lending-core/contracts/mocks/helpers/MockReserveConfiguration.sol',
+      '@pollum-io/lending-core/contracts/mocks/oracle/CLAggregators/MockAggregator.sol',
+      '@pollum-io/lending-core/contracts/mocks/tokens/MintableERC20.sol',
+      '@pollum-io/lending-core/contracts/mocks/flashloan/MockFlashLoanReceiver.sol',
+      '@pollum-io/lending-core/contracts/mocks/tokens/WETH9Mocked.sol',
+      '@pollum-io/lending-core/contracts/mocks/upgradeability/MockVariableDebtToken.sol',
+      '@pollum-io/lending-core/contracts/mocks/upgradeability/MockAToken.sol',
+      '@pollum-io/lending-core/contracts/mocks/upgradeability/MockStableDebtToken.sol',
+      '@pollum-io/lending-core/contracts/mocks/upgradeability/MockInitializableImplementation.sol',
+      '@pollum-io/lending-core/contracts/mocks/helpers/MockPool.sol',
+      '@pollum-io/lending-core/contracts/dependencies/openzeppelin/contracts/IERC20Detailed.sol',
+      '@pollum-io/lending-core/contracts/mocks/oracle/PriceOracle.sol',
+      '@pollum-io/lending-core/contracts/mocks/tokens/MintableDelegationERC20.sol',
     ],
   },
   external: {
     contracts: [
       {
         artifacts: './temp-artifacts',
-        deploy: 'node_modules/@aave/deploy-v3/dist/deploy',
+        deploy: 'node_modules/@pollum-io/lending-deploy/dist/deploy',
       },
     ],
   },

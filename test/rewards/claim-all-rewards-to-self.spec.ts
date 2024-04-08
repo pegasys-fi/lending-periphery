@@ -7,7 +7,7 @@ import {
   MAX_UINT_AMOUNT,
   ERC20__factory,
   advanceTimeAndBlock,
-} from '@aave/deploy-v3';
+} from '@pollum-io/lending-deploy';
 import {
   assetDataComparator,
   getRewards,

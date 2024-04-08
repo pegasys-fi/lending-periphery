@@ -7,7 +7,7 @@ import {
   increaseTime,
   MAX_UINT_AMOUNT,
   advanceTimeAndBlock,
-} from '@aave/deploy-v3';
+} from '@pollum-io/lending-deploy';
 import { RANDOM_ADDRESSES } from '../helpers/constants';
 import { comparatorEngine } from './helpers/comparator-engine';
 import {

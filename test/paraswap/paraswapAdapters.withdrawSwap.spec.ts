@@ -5,7 +5,7 @@ import {
   getFirstSigner,
   parseUnitsFromToken,
   tEthereumAddress,
-} from '@aave/deploy-v3';
+} from '@pollum-io/lending-deploy';
 import {
   MockParaSwapAugustus__factory,
   MockParaSwapAugustusRegistry__factory,

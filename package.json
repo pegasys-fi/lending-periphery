@@ -1,7 +1,7 @@
 {
-  "name": "@aave/periphery-v3",
-  "version": "2.5.2",
-  "description": "Aave Protocol V3 periphery smart contracts",
+  "name": "@pollum-io/lending-periphery",
+  "version": "0.0.3",
+  "description": "Lending periphery smart contracts for Pegasys Protocol",
   "files": [
     "contracts",
     "artifacts"
@@ -9,13 +9,7 @@
   "scripts": {
     "run-env": "npm i && tail -f /dev/null",
     "hardhat": "hardhat",
-    "hardhat:kovan": "hardhat --network kovan",
-    "hardhat:tenderly-main": "hardhat --network tenderlyMain",
-    "hardhat:ropsten": "hardhat --network ropsten",
-    "hardhat:main": "hardhat --network main",
-    "hardhat:docker": "hardhat --network hardhatevm_docker",
-    "hardhat:mumbai": "hardhat --network mumbai",
-    "hardhat:matic": "hardhat --network matic",
+    "hardhat:rollux": "hardhat --network rollux",
     "compile": "SKIP_LOAD=true hardhat compile",
     "console:fork": "MAINNET_FORK=true hardhat console",
     "test": ". ./setup-test-env.sh && TS_NODE_TRANSPILE_ONLY=1 hardhat test test/__setup.spec.ts test/*spec.ts ./test/wrapped-token-gateway.spec.ts ./test/rewards/*.spec.ts ./test/rewards/**/*.spec.ts ./test/paraswap/**.spec.ts",
@@ -26,12 +20,12 @@
     "clean": "rm -rf artifacts cache",
     "format": "prettier --write .",
     "lint": "eslint .",
-    "ci:clean": "rm -rf ./artifacts ./cache ./types ./temp-artifacts node_modules/@aave/periphery-v3",
+    "ci:clean": "rm -rf ./artifacts ./cache ./types ./temp-artifacts node_modules/@pollum-io/lending-periphery",
     "prepublish": "npm run compile"
   },
   "license": "AGPLv3",
   "devDependencies": {
-    "@aave/deploy-v3": "1.56.1",
+    "@pollum-io/lending-deploy": "0.0.1",
     "@ethereum-waffle/mock-contract": "4.0.4",
     "@ethersproject/abi": "^5.1.0",
     "@nomicfoundation/hardhat-chai-matchers": "^1.0.2",
@@ -83,9 +77,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/aave/aave-v3-periphery"
+    "url": "git://github.com/pegasys-fi/lending-periphery"
   },
   "dependencies": {
-    "@aave/core-v3": "1.19.3"
+    "@pollum-io/lending-core": "0.0.1"
   }
 }

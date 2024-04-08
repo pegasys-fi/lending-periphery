@@ -50,7 +50,7 @@ import {
   impersonateAddress,
   getEmissionManager,
   getFaucet,
-} from '@aave/deploy-v3';
+} from '@pollum-io/lending-deploy';
 import { deployATokenMock } from '../rewards/helpers/deploy';
 import { parseEther } from 'ethers/lib/utils';
 import { EmissionManager, Faucet } from '../../types';
@@ -302,12 +302,12 @@ export async function initializeMakeSuite() {
   await waitForTx(
     await testEnv.aaveToken
       .connect(rewardsVault.signer)
-      ['mint(address,uint256)'](rewardsVault.address, parseEther('60000000000'))
+    ['mint(address,uint256)'](rewardsVault.address, parseEther('60000000000'))
   );
   await waitForTx(
     await testEnv.rewardToken
       .connect(rewardsVault.signer)
-      ['mint(address,uint256)'](rewardsVault.address, parseEther('200000000'))
+    ['mint(address,uint256)'](rewardsVault.address, parseEther('200000000'))
   );
 
   await waitForTx(
@@ -343,5 +343,5 @@ export async function makeSuite(name: string, tests: (testEnv: TestEnv) => void)
       await revertHead();
     });
   });
-  afterEach(async () => {});
+  afterEach(async () => { });
 }

@@ -46,7 +46,7 @@ import {
   getStakeAave,
   waitForTx,
   TESTNET_PRICE_AGGR_PREFIX,
-  StakedTokenV2Rev3,
+  StakedTokenV3Rev3,
   impersonateAddress,
   getEmissionManager,
   getFaucet,
@@ -88,7 +88,7 @@ export interface TestEnv {
   emissionManager: EmissionManager;
   rewardsController: RewardsController;
   rewardsVault: SignerWithAddress;
-  stakedAave: StakedTokenV2Rev3;
+  stakedAave: StakedTokenV3Rev3;
   aaveToken: MintableERC20;
   aDaiMockV2: ATokenMock;
   aWethMockV2: ATokenMock;
@@ -135,7 +135,7 @@ const testEnv: TestEnv = {
   emissionManager: {} as EmissionManager,
   rewardsController: {} as RewardsController,
   rewardsVault: {} as SignerWithAddress,
-  stakedAave: {} as StakedTokenV2Rev3,
+  stakedAave: {} as StakedTokenV3Rev3,
   aaveToken: {} as MintableERC20,
   aDaiMockV2: {} as ATokenMock,
   aWethMockV2: {} as ATokenMock,

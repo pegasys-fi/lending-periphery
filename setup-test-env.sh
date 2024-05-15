@@ -33,11 +33,11 @@ cp -r artifacts/* temp-artifacts/
 mkdir -p node_modules/@aave/periphery-v3
 ln -s "$PWD/package.json" node_modules/@aave/periphery-v3/package.json
 
-# Import external @aave/deploy artifacts
+# Import external @pollum-io/lending-deploy artifacts
 mkdir -p temp-artifacts/deploy/stake
 cp -r node_modules/@pollum-io/lending-deploy/artifacts/contracts/* temp-artifacts/deploy
-cp -r 'node_modules/@pollum-io/lending-deploy/artifacts/@aave/safety-module/contracts/stake' temp-artifacts/deploy
-cp -r 'node_modules/@pollum-io/lending-deploy/artifacts/@aave/safety-module/contracts/proposals' temp-artifacts/deploy/stake
+cp -r 'node_modules/@pollum-io/lending-deploy/artifacts/@pollum-io/pegasys-stake/contracts/stake' temp-artifacts/deploy
+cp -r 'node_modules/@pollum-io/lending-deploy/artifacts/@pollum-io/pegasys-stake/contracts/proposals' temp-artifacts/deploy/stake
 
 # Export MARKET_NAME variable to use Aave market as testnet deployment setup
 export MARKET_NAME="Test"

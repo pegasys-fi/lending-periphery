@@ -25,7 +25,7 @@
   },
   "license": "AGPLv3",
   "devDependencies": {
-    "@pollum-io/lending-deploy": "0.0.8",
+    "@pollum-io/lending-deploy": "0.0.9",
     "@ethereum-waffle/mock-contract": "4.0.4",
     "@ethersproject/abi": "^5.1.0",
     "@nomicfoundation/hardhat-chai-matchers": "^1.0.2",

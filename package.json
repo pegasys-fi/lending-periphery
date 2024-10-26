@@ -25,7 +25,8 @@
   },
   "license": "AGPLv3",
   "devDependencies": {
-    "@pollum-io/lending-deploy": "0.0.15",
+    "@pollum-io/lending-deploy": "0.0.20",
+    "@pollum-io/lending-core": "0.0.5",
     "@ethereum-waffle/mock-contract": "4.0.4",
     "@ethersproject/abi": "^5.1.0",
     "@nomicfoundation/hardhat-chai-matchers": "^1.0.2",
@@ -77,8 +78,5 @@
   "repository": {
     "type": "git",
     "url": "git://github.com/pegasys-fi/lending-periphery"
-  },
-  "dependencies": {
-    "@pollum-io/lending-core": "0.0.4"
   }
 }
